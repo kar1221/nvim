@@ -6,14 +6,15 @@ local servers = {
   "vue_ls",
   "vtsls",
   "clangd",
-  "cmake",
   "css_variables",
   "cssmodules_ls",
   "emmet_language_server",
   "eslint",
   "jsonls",
   "svelte",
-  "tailwindcss"
+  "tailwindcss",
+  "rust_analyzer",
+  "ruby_lsp"
 }
 vim.lsp.enable(servers)
 

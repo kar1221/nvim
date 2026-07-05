@@ -69,6 +69,7 @@ return {
         "sql",
         "tsx",
         "rust",
+        "ruby"
       },
     },
   },
