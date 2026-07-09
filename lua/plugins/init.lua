@@ -19,6 +19,20 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      fuzzy = {
+        sorts = {
+          function(a, b)
+            if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+              return
+            end
+            return b.client_name == "emmet-language-server"
+          end,
+          -- defaults
+          "exact",
+          "score",
+          "sort_text",
+        },
+      },
       keymap = {
         ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
         ["<C-e>"] = { "hide", "fallback" },
@@ -52,6 +66,9 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      indent = {
+        enabled = true,
+      },
       ensure_installed = {
         "vim",
         "lua",
@@ -69,7 +86,8 @@ return {
         "sql",
         "tsx",
         "rust",
-        "ruby"
+        "ruby",
+        "dart",
       },
     },
   },
