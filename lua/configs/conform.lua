@@ -1,9 +1,17 @@
 local options = {
+  formatters = {
+    rubocop = {
+      args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
+    },
+  },
   formatters_by_ft = {
     lua = { "stylua" },
     css = { "prettier" },
     html = { "prettier" },
-    vue = { "prettier" }
+    vue = { "prettier" },
+    ruby = { "rubocop" },
+    eruby = { "erb_format" },
+    dart = { "dart_format" }
   },
 
   -- format_on_save = {

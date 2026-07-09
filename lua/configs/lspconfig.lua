@@ -5,8 +5,7 @@ local servers = {
   "cssls",
   "vue_ls",
   "vtsls",
-  "clangd",
-  "css_variables",
+  "clangd", "css_variables",
   "cssmodules_ls",
   "emmet_language_server",
   "eslint",
@@ -14,8 +13,11 @@ local servers = {
   "svelte",
   "tailwindcss",
   "rust_analyzer",
-  "ruby_lsp"
+  "solargraph",
+  "dartls",
+  "astro",
 }
+
 vim.lsp.enable(servers)
 
 -- read :h vim.lsp.config for changing options of lsp servers
@@ -51,6 +53,38 @@ local vue_ls_config = {}
 
 vim.lsp.config("vtsls", vtsls_config)
 vim.lsp.config("vue_ls", vue_ls_config)
+
+-- vim.lsp.config("dartls", {
+--   -- cmd = { "dart", "language-server", "--protocol=lsp" },
+--   filetypes = { "dart" },
+--   root_markers = { "pubspec.yml" },
+--   settings = {
+--     dart = {
+--       completeFunctionCalls = true,
+--       showTodos = true,
+--     },
+--   },
+--   init_options = {
+--     closingLabels = true,
+--     flutterOutline = true,
+--     onlyAnalyzeProjectsWithOpenFiles = true,
+--     outline = true,
+--     suggestFromUnimportedLibraries = true,
+--   },
+-- })
+
+vim.lsp.config("rubocop", {
+  enabled = false,
+})
+
+vim.lsp.config("solargraph", {
+  settings = {
+    solargraph = {
+      diagnostics = true,
+      formatting = true,
+    },
+  },
+})
 
 -- Vue
 -- ---------------------------------------------------------------
