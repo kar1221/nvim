@@ -11,7 +11,8 @@ local options = {
     vue = { "prettier" },
     ruby = { "rubocop" },
     eruby = { "erb_format" },
-    dart = { "dart_format" }
+    dart = { "dart_format" },
+    go = { "goimports", "gofumpt" },
   },
 
   -- format_on_save = {
