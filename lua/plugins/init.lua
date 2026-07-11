@@ -13,6 +13,14 @@ return {
     end,
   },
 
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = false,
+    opts = {
+      ensure_installed = require "configs.mason",
+    },
+  },
+
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 
@@ -88,6 +96,10 @@ return {
         "rust",
         "ruby",
         "dart",
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
       },
     },
   },
