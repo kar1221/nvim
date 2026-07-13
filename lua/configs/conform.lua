@@ -13,6 +13,9 @@ local options = {
     eruby = { "erb_format" },
     dart = { "dart_format" },
     go = { "goimports", "gofumpt" },
+    cs = { "csharpier" },
+    typescript = { "prettier" },
+    javascript = { "prettier" }
   },
 
   -- format_on_save = {
