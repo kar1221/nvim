@@ -6,6 +6,7 @@ local ensure_installed = {
   "gofumpt",
   "gomodifytags",
   "impl",
+  "csharpier",
 }
 
 return ensure_installed
