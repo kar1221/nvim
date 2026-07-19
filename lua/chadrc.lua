@@ -6,7 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "material-lighter",
+  theme = "catppuccin-latte",
+  transparency = false,
 
   -- hl_override = {
   -- 	Comment = { italic = true },
@@ -16,19 +17,25 @@ M.base46 = {
 
 M.ui = {
   cmp = {
-    style = "default",
+    icons_left = true,
+    style = "flat_dark",
   },
 
   statusline = {
-    separator_style = "round",
+    theme = "default",
   },
+}
+
+M.colorify = {
+  enabled = true,
+  mode = "bg"
 }
 
 -- M.nvdash = { load_on_startup = true }
 -- M.ui = {
---       tabufline = {
---          lazyload = false
---      }
+--   tabufline = {
+--     lazyload = false,
+--   },
 -- }
 
 return M

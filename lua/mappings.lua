@@ -36,7 +36,7 @@ map("n", "<C-Down>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
 
-map("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
+map("n", "<leader>cr", require "nvchad.lsp.renamer", { desc = "Rename" })
 
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below" })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right" })

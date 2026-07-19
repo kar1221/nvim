@@ -3,7 +3,7 @@ return {
   lazy = true,
   keys = {
     {
-      "<leader>fF",
+      "<leader>cF",
       function()
         require("telescope").extensions.flutter.commands()
       end,
