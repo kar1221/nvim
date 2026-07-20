@@ -20,10 +20,18 @@ map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc 
 map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
 
 map("n", "<leader>e", function()
-  require("nvim-tree.api").tree.toggle()
+  local tree = require("nvim-tree.api").tree
+
+  local is_visible = tree.is_visible()
+
+  if not is_visible then
+    tree.open()
+  else
+    tree.close()
+  end
 end, { desc = "Toggle NvimTree" })
 
-map("n", "gI", function ()
+map("n", "gI", function()
   vim.lsp.buf.implementation()
 end, { desc = "Goto Implementation" })
 
