@@ -29,27 +29,13 @@ return {
       "MunifTanjim/nui.nvim",
     },
     opts = {
-      cmdline = {
-        enabled = true,
-        view = "cmdline_popup",
-        format = {
-          cmdline = { pattern = "^:", icon = "", lang = "vim" },
-          search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-          search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
-          filter = { pattern = "^:%s*!", icon = "$", lang = "bash" },
-          lua = { pattern = { "^:%s*lua%s+", "^:%s*lua%s*=%s*", "^:%s*=%s*" }, icon = "", lang = "lua" },
-          help = { pattern = "^:%s*he?l?p?%s+", icon = "" },
-          input = { view = "cmdline_input", icon = "󰥻 " },
+      lsp = {
+        signature = {
+          enabled = false
         },
-      },
-
-      messages = {
-        enabled = true, -- enables the Noice messages UI
-        view = "notify", -- default view for messages
-        view_error = "notify", -- view for errors
-        view_warn = "notify", -- view for warnings
-        view_history = "messages", -- view for :messages
-        view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+        hover = {
+          silent = true,
+        },
       },
 
       routes = {
@@ -58,9 +44,14 @@ return {
             event = "notify",
             find = "No information available",
           },
-          opts = {
-            skip = true,
+          opts = { skip = true },
+        },
+        {
+          filter = {
+            event = "notify",
+            find = "No signature help available",
           },
+          opts = { skip = true },
         },
       },
 
