@@ -5,19 +5,24 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 local unmap = vim.keymap.del
 
-local tab = require "nvchad.tabufline"
-
 unmap("n", "<leader>e")
 unmap("n", "<C-n>")
 
-map("n", ";", ":", { desc = "CMD enter command mode" })
+map({ "n", "i" }, "<A-j>", function()
+  require("moveline").down()
+end, { desc = "Move Down" })
 
-map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
-map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-map("v", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+map({ "n", "i" }, "<A-k>", function()
+  require("moveline").up()
+end, { desc = "Move Up" })
+
+map("v", "<A-j>", function()
+  require("moveline").block_down()
+end, { desc = "Move Down" })
+
+map("v", "<A-k>", function()
+  require("moveline").block_up()
+end, { desc = "Move Up" })
 
 map("n", "<leader>e", function()
   local tree = require("nvim-tree.api").tree
@@ -51,19 +56,19 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right" })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window" })
 
 map("n", "<S-h>", function()
-  tab.prev()
+  require("nvchad.tabufline").prev()
 end, { desc = "Previous buffer" })
 
 map("n", "<S-l>", function()
-  tab.next()
+  require("nvchad.tabufline").next()
 end, { desc = "Next buffer" })
 
 map("n", "<leader>bd", function()
-  tab.close_buffer()
+  require("nvchad.tabufline").close_buffer()
 end, { desc = "Close current buffer" })
 
 map("n", "<leader>bo", function()
-  tab.closeAllBufs(false)
+  require("nvchad.tabufline").closeAllBufs(false)
 end, { desc = "Close other buffer" })
 
 for i = 1, 9, 1 do
