@@ -6,7 +6,7 @@
 local M = {}
 
 M.base46 = {
-  theme = "ayu_light",
+  theme = "catppuccin-latte",
   transparency = false,
 
   -- hl_override = {
@@ -17,7 +17,7 @@ M.base46 = {
 
 M.ui = {
   cmp = {
-    icons_left = true,
+    icons_left = false,
     style = "default",
     format_colors = {
       lsp = true
@@ -25,7 +25,7 @@ M.ui = {
   },
 
   statusline = {
-    theme = "default",
+    theme = "minimal",
   },
 }
 
