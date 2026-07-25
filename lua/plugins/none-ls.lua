@@ -5,7 +5,7 @@ return {
     "nvimtools/none-ls-extras.nvim",
   },
 
-  event = "BufEnter",
+  ft = { "cs", "go" },
   opts = function()
     local null_ls = require "null-ls"
 
@@ -14,7 +14,6 @@ return {
         null_ls.builtins.code_actions.gomodifytags,
         null_ls.builtins.code_actions.impl,
         null_ls.builtins.formatting.csharpier,
-        require "none-ls.code_actions.eslint",
       },
     }
   end,
