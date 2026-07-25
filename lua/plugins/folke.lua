@@ -60,11 +60,19 @@ return {
       -- words = { enabled = true },
     },
   },
+
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          render = "compact",
+          stages = "slide",
+        },
+      },
     },
     opts = {
       lsp = {
@@ -75,6 +83,9 @@ return {
           enabled = false,
         },
         message = {
+          enabled = false,
+        },
+        progress = {
           enabled = false,
         },
       },
@@ -96,32 +107,39 @@ return {
       --   },
       -- },
 
-      messages = {
-        enabled = false,
+      -- messages = {
+      --   enabled = false,
+      -- },
+      --
+      -- popupmenu = {
+      --   enabled = false,
+      -- },
+      --
+      -- notify = {
+      --   enabled = false,
+      -- },
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
       },
 
-      popupmenu = {
-        enabled = false,
-      },
-
-      notify = {
-        enabled = false,
-      },
-
-      views = {
-        cmdline_popup = {
-          position = {
-            row = 2,
-            col = "50%",
-          },
-          size = {
-            width = 60,
-          },
-          border = {
-            style = "rounded",
-          },
-        },
-      },
+      -- views = {
+      --   cmdline_popup = {
+      --     position = {
+      --       row = 2,
+      --       col = "50%",
+      --     },
+      --     size = {
+      --       width = 60,
+      --     },
+      --     border = {
+      --       style = "rounded",
+      --     },
+      --   },
+      -- },
     },
   },
 }

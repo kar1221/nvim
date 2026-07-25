@@ -26,27 +26,74 @@ return {
 
   {
     "saghen/blink.cmp",
+    -- version = "2.*",
     dependencies = {
+      -- "saghen/blink.lib",
+      --
       "onsails/lspkind.nvim",
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
+      sources = {
+        providers = {
+          lsp = {
+            score_offset = 10,
+          },
+
+          snippets = {
+            score_offset = 8,
+          },
+
+          buffer = {
+            score_offset = 6,
+          },
+
+          path = {
+            score_offset = 4,
+          },
+        },
+      },
+
       fuzzy = {
         sorts = {
-          function(a, b)
-            if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
-              return
-            end
-            return b.client_name == "emmet-language-server"
-          end,
+          -- function(a, b)
+          --   if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+          --     return
+          --   end
+          --   return b.client_name == "emmet-language-server"
+          -- end,
           -- defaults
-          -- "exact",
+          "exact",
           "score",
           "sort_text",
         },
       },
       keymap = {
-        preset = "default",
+        ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-e>"] = { "hide", "fallback" },
+
+        ["<Tab>"] = {
+          function(cmp)
+            if cmp.snippet_active() then
+              return cmp.accept()
+            else
+              return cmp.select_and_accept()
+            end
+          end,
+          "snippet_forward",
+          "fallback",
+        },
+        ["<S-Tab>"] = { "snippet_backward", "fallback" },
+
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+        ["<C-n>"] = { "select_next", "fallback_to_mappings" },
+
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+        ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
       },
       completion = {
         menu = {
@@ -102,11 +149,14 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     opts = {
-      indent = {
-        disable = { "dart" },
-        enabled = false,
-      },
+      -- Apparently this was for master branch of tree-sitter
+      -- indent = {
+      --   enable = false,
+      -- },
+      -- But that means ensure_installed is deprecated now though
+      -- Not sure how would nvchad handle it
       ensure_installed = {
         "vim",
         "lua",

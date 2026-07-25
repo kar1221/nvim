@@ -17,4 +17,4 @@ vim.o.cursorline = false
 vim.o.cmdheight = 0
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
-vim.o.smartindent = false
+vim.o.smartindent = true
