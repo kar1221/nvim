@@ -1,21 +1,21 @@
 return {
-  enabled = false,
+  enabled = true,
   "windwp/nvim-autopairs",
   event = "InsertEnter",
   opts = {
     map_cr = true,
-    check_ts = true
+    check_ts = true,
   },
 
   config = function(_, opts)
-    local npairs = require("nvim-autopairs")
-    local Rule = require("nvim-autopairs.rule")
-    local cond = require("nvim-autopairs.conds")
+    local npairs = require "nvim-autopairs"
+    local Rule = require "nvim-autopairs.rule"
+    local cond = require "nvim-autopairs.conds"
 
     npairs.setup(opts)
 
     local brackets = { { "(", ")" }, { "[", "]" }, { "{", "}" } }
-    npairs.add_rules({
+    npairs.add_rules {
       Rule(" ", " ")
         :with_pair(function(opts)
           local pair = opts.line:sub(opts.col - 1, opts.col)
@@ -36,9 +36,9 @@ return {
             brackets[3][1] .. "  " .. brackets[3][2],
           }, context)
         end),
-    })
+    }
     for _, bracket in pairs(brackets) do
-      npairs.add_rules({
+      npairs.add_rules {
         Rule(bracket[1] .. " ", " " .. bracket[2])
           :with_pair(cond.none())
           :with_move(function(opts)
@@ -49,8 +49,7 @@ return {
           :replace_map_cr(function(_)
             return "<C-c>2xi<CR><C-c>O"
           end),
-      })
+      }
     end
   end,
 }
-
