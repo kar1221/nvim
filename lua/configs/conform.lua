@@ -3,6 +3,10 @@ local options = {
     rubocop = {
       args = { "-a", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
     },
+    ktfmt = {
+      command = "ktfmt",
+      args = { "--kotlinlang-style", "-" },
+    },
   },
   formatters_by_ft = {
     lua = { "stylua" },
@@ -15,12 +19,13 @@ local options = {
     go = { "goimports", "gofumpt" },
     cs = { "csharpier" },
     typescript = { "prettier" },
-    javascript = { "prettier" }
+    javascript = { "prettier" },
+    kotlin = { "ktfmt" },
   },
 
   format_on_save = {
     -- These options will be passed to conform.format()
-    timeout_ms = 500,
+    timeout_ms = 1000,
     lsp_fallback = true,
   },
 }

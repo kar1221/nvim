@@ -7,6 +7,8 @@ local ensure_installed = {
   "gomodifytags",
   "impl",
   "csharpier",
+  "ktlint",
+  "ktfmt",
 }
 
 return ensure_installed

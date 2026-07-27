@@ -2,5 +2,6 @@ require "configs.lsp.go"
 require "configs.lsp.dart"
 require "configs.lsp.web"
 require "configs.lsp.csharp"
--- require('configs.lsp.ruby')
+require "configs.lsp.kotlin"
 require "configs.lsp.vue"
+require "configs.lsp.rust"

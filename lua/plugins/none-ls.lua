@@ -5,7 +5,7 @@ return {
     "nvimtools/none-ls-extras.nvim",
   },
 
-  ft = { "cs", "go" },
+  ft = { "cs", "go", "kotlin" },
   opts = function()
     local null_ls = require "null-ls"
 
@@ -14,6 +14,7 @@ return {
         null_ls.builtins.code_actions.gomodifytags,
         null_ls.builtins.code_actions.impl,
         null_ls.builtins.formatting.csharpier,
+        null_ls.builtins.diagnostics.ktlint,
       },
     }
   end,
