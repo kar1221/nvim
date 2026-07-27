@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "dart" },
+  pattern = { "svelte" },
   callback = function(args)
     local bufnr = args.buf
 
