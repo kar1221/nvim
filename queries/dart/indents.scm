@@ -50,4 +50,10 @@
 ; (if_statement) @indent.begin
 ; (if_statement
 ;  (block) @indent.branch)
-; (if_statement) @indent.auto
+; (if_statement) @indent
+
+(_
+  (selector
+    (argument_part) @indent.auto)
+  .
+  (selector))
