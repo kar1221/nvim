@@ -85,7 +85,7 @@ map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
 map("n", "<leader>ca", function()
-  require("actions-preview").code_actions()
+  vim.lsp.buf.code_action()
 end, { desc = "Code action" })
 
 vim.keymap.set("n", "zR", require("ufo").openAllFolds)

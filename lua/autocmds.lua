@@ -11,13 +11,16 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
       return
     end
 
-    local ok = pcall(vim.treesitter.start, bufnr)
-    if not ok then
-      return
-    end
+    pcall(vim.treesitter.start, bufnr)
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "dart" },
+  callback = function(args)
+    local bufnr = args.buf
 
     vim.b[bufnr].did_indent = 1
-    vim.treesitter.start(bufnr)
     vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
   end,
 })
@@ -25,5 +28,6 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.lsp.document_color.enable(true, { bufnr = ev.buf })
+    vim.lsp.buf.code_action = require("actions-preview").code_actions
   end,
 })
