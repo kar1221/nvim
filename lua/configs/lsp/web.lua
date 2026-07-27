@@ -1,4 +1,3 @@
-
 local web_lsp = {
   "html",
   "cssls",

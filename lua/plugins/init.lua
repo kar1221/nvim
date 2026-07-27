@@ -96,6 +96,9 @@ return {
         ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
       },
       completion = {
+        trigger = {
+          show_on_trigger_character = false,
+        },
         menu = {
           draw = {
             components = {
@@ -182,6 +185,7 @@ return {
         "gowork",
         "gosum",
         "c_sharp",
+        "html",
       },
     },
   },
