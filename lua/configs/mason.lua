@@ -9,6 +9,8 @@ local ensure_installed = {
   "csharpier",
   "ktlint",
   "ktfmt",
+  "svelte-language-server",
+  "vue-language-server"
 }
 
 return ensure_installed

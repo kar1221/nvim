@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "svelte" },
+  pattern = { "svelte", "vue" },
   callback = function(args)
     local bufnr = args.buf
 
@@ -29,5 +29,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(ev)
     vim.lsp.document_color.enable(true, { bufnr = ev.buf })
     vim.lsp.buf.code_action = require("actions-preview").code_actions
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("vtsls_svelte_signature", { clear = true }),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client.name == "vtsls" and vim.bo[ev.buf].filetype == "svelte" then
+      client.server_capabilities.signatureHelpProvider = nil
+    end
   end,
 })
