@@ -5,14 +5,35 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.base46 = {
-  theme = "catppuccin-latte",
-  transparency = false,
+---@type ThemeName
+local theme = "gruvbox"
 
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
+local get_highlights = function()
+  ---@type Base46HLGroupsList
+  local h = {}
+
+  if theme == "gruvbox" then
+    h.NvimTreeFolderIcon = {
+      fg = "vibrant_green",
+    }
+
+    h.NvimTreeFolderName = {
+      fg = "vibrant_green",
+    }
+
+    h.NvimTreeOpenedFolderName = {
+      fg = "vibrant_green",
+    }
+  end
+
+  return h
+end
+
+M.base46 = {
+  theme = theme,
+  transparency = true,
+
+  hl_override = get_highlights(),
 }
 
 M.ui = {
@@ -20,21 +41,26 @@ M.ui = {
     icons_left = false,
     style = "default",
     format_colors = {
-      lsp = true
-    }
+      lsp = true,
+    },
   },
 
   statusline = {
     theme = "minimal",
+    separator_style = "default",
+  },
+
+  tabufline = {
+    order = { "treeOffset", "buffers" },
   },
 }
 
 M.colorify = {
   enabled = true,
-  mode = "bg"
+  mode = "bg",
 }
 
--- M.nvdash = { load_on_startup = true }
+M.nvdash = { load_on_startup = true }
 -- M.ui = {
 --   tabufline = {
 --     lazyload = false,
