@@ -12,19 +12,18 @@ local get_highlights = function()
   ---@type Base46HLGroupsList
   local h = {}
 
-  if theme == "gruvbox" then
-    h.NvimTreeFolderIcon = {
-      fg = "vibrant_green",
-    }
-
-    h.NvimTreeFolderName = {
-      fg = "vibrant_green",
-    }
-
-    h.NvimTreeOpenedFolderName = {
-      fg = "vibrant_green",
-    }
-  end
+  -- if theme == "gruvbox" then
+  --   h.NvimTreeFolderIcon = {
+  --     fg = "vibrant_green",
+  --   }
+  --
+  --   h.NvimTreeFolderName = {
+  --     fg = "vibrant_green",
+  --   }
+  --
+  --   h.NvimTreeOpenedFolderName = {
+  --     fg = "vibrant_green",
+  --   }
 
   return h
 end
