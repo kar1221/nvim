@@ -8,31 +8,39 @@ local M = {}
 ---@type ThemeName
 local theme = "gruvbox"
 
-local get_highlights = function()
-  ---@type Base46HLGroupsList
-  local h = {}
-
-  -- if theme == "gruvbox" then
-  --   h.NvimTreeFolderIcon = {
-  --     fg = "vibrant_green",
-  --   }
-  --
-  --   h.NvimTreeFolderName = {
-  --     fg = "vibrant_green",
-  --   }
-  --
-  --   h.NvimTreeOpenedFolderName = {
-  --     fg = "vibrant_green",
-  --   }
-
-  return h
-end
-
 M.base46 = {
   theme = theme,
   transparency = true,
 
-  hl_override = get_highlights(),
+  integrations = {
+    "blink-pair",
+    "blink",
+    "cmp",
+    "defaults",
+    "devicons",
+    "flash",
+    "git",
+    "gitsigns",
+    "lsp",
+    "markview",
+    "mason",
+    "notify",
+    "nvcheatsheet",
+    "nvimtree",
+    "render-markdown",
+    "semantic_tokens",
+    "statusline",
+    "syntax",
+    "tbline",
+    "telescope",
+    "tiny-inline-diagnostic",
+    "todo",
+    "treesitter",
+    "trouble",
+    "whichkey",
+  },
+
+  hl_override = {},
 }
 
 M.ui = {
@@ -45,8 +53,8 @@ M.ui = {
   },
 
   statusline = {
-    theme = "minimal",
-    separator_style = "default",
+    theme = "default",
+    separator_style = "round",
   },
 
   tabufline = {

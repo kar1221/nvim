@@ -20,3 +20,4 @@ vim.o.tabstop = 2
 vim.o.smartindent = true
 vim.o.cindent = false
 vim.o.termguicolors = true
+vim.o.mouse = ""

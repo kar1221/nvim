@@ -3,12 +3,7 @@
 -- add yours here
 
 local map = vim.keymap.set
-local unmap = vim.keymap.del
-local cmd = function(c)
-  return function()
-    vim.cmd(c)
-  end
-end
+local cmd = require("utils").cmd
 
 -- unmap("n", "<leader>e")
 -- unmap("n", "<C-n>")
@@ -32,23 +27,6 @@ map("n", "<C-k>", "<C-w>k", { desc = "Switch Window Up" })
 
 -- Escape
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General Clear Highlights" })
-
--- Move line
-map({ "n", "i" }, "<A-j>", function()
-  require("moveline").down()
-end, { desc = "Move Down" })
-
-map({ "n", "i" }, "<A-k>", function()
-  require("moveline").up()
-end, { desc = "Move Up" })
-
-map("v", "<A-j>", function()
-  require("moveline").block_down()
-end, { desc = "Move Down" })
-
-map("v", "<A-k>", function()
-  require("moveline").block_up()
-end, { desc = "Move Up" })
 
 map("n", "<C-Up>", cmd "resize +2", { desc = "Increase Window Height" })
 map("n", "<C-Down>", cmd "resize -2", { desc = "Decrease Window Height" })
@@ -87,35 +65,6 @@ map("n", "<leader>ca", function()
   vim.lsp.buf.code_action()
 end, { desc = "Code action" })
 
-map("n", "m", cmd "CccPick", { desc = "Color picker" })
-
-vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == "vtsls" then
-      local map = function(keys, func, desc)
-        vim.keymap.set("n", keys, func, { buffer = args.buf, desc = desc })
-      end
-
-      local exec = function(c)
-        return function()
-          local full_cmd = "VtsExec " .. c
-          vim.cmd(full_cmd)
-        end
-      end
-
-      map("<leader>co", exec "organize_imports", "Organize Imports")
-      map("<leader>cs", exec "sort_imports", "Sort Imports")
-      map("<leader>cU", exec "remove_unused_imports", "Remove Unused Imports")
-      map("<leader>cu", exec "remove_unused", "Remove Unused")
-      map("<leader>cm", exec "add_missing_imports", "Add Missing Imports")
-      map("gS", exec "goto_source_definition", "Go to Source Definition")
-      map("<leader>cR", exec "rename_file", "Rename File")
-      map("<leader>cF", exec "file_references", "File References")
-    end
-  end,
-})
-
 -- Tab
 map("n", "<S-h>", function()
   require("nvchad.tabufline").prev()
@@ -147,10 +96,6 @@ map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result
 map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
-
--- Fold
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
 -- Telescope
 map("n", "<leader><leader>", cmd "Telescope find_files", { desc = "telescope find files" })

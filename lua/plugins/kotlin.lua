@@ -13,11 +13,9 @@ return {
         "mvnw",
         "settings.gradle",
       },
-      --
-      jdk_for_symbol_resolution = nil, -- Auto-detect from project
 
       jvm_args = {
-        "-Xmx4g", -- Increase max heap (useful for large projects)
+        "-Xmx4g",
       },
 
       -- Optional: Configure inlay hints (requires kotlin-lsp v261+)
@@ -54,9 +52,9 @@ return {
       vim.cmd "KotlinImplementation"
     end, { desc = "Goto Implementation" })
 
-    vim.keymap.set({ "n" }, "<leader>ca", function()
-      vim.cmd "KotlinCodeActions"
-    end, { desc = "Code actions" })
+    -- vim.keymap.set({ "n" }, "<leader>ca", function()
+    --   vim.cmd "KotlinCodeActions"
+    -- end, { desc = "Code actions" })
 
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "kotlin" },

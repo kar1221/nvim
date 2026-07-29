@@ -98,7 +98,16 @@ return {
       -- bigfile = { enabled = true },
       -- dashboard = { enabled = true },
       -- explorer = { enabled = true },
-      -- indent = { enabled = true },
+      indent = {
+        enabled = true,
+        only_scope = true,
+
+        chunk = {
+          enabled = true,
+          corner_top = "╭",
+          corner_bottom = "╰",
+        },
+      },
       input = { enabled = true },
       picker = { enabled = true },
       -- notifier = { enabled = true },
@@ -115,13 +124,13 @@ return {
     event = "VeryLazy",
     dependencies = {
       "MunifTanjim/nui.nvim",
-      -- {
-      --   "rcarriga/nvim-notify",
-      --   opts = {
-      --     render = "compact",
-      --     stages = "slide",
-      --   },
-      -- },
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          render = "compact",
+          stages = "slide",
+        },
+      },
     },
     opts = {
       lsp = {

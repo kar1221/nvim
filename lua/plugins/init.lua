@@ -186,7 +186,18 @@ return {
         "gosum",
         "c_sharp",
         "html",
+        "markdown",
+        "markdown_inline",
+        "latex",
+        "typst",
+        "yaml",
+        "comment",
       },
     },
+  },
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
   },
 }
