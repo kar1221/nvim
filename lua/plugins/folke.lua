@@ -200,4 +200,20 @@ return {
       -- },
     },
   },
+
+  {
+    "folke/zen-mode.nvim",
+    event = "BufEnter",
+    config = function()
+      local zen = require "zen-mode"
+
+      require("zen-mode").setup {
+        window = {
+          width = 0.75,
+        },
+      }
+
+      vim.keymap.set("n", "<leader>zz", zen.toggle, { desc = "Toggle zen mode" })
+    end,
+  },
 }
