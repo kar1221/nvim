@@ -9,7 +9,7 @@ return {
           enabled = true,
         },
         add_messages = {
-          display_count = true,
+          display_count = false,
         },
       },
     }
