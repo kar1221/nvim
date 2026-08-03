@@ -102,6 +102,9 @@ return {
         menu = {
           draw = {
             components = {
+              label = {
+                width = { max = 30 },
+              },
               kind = {
                 highlight = function(ctx)
                   local hl = ctx.kind_hl
