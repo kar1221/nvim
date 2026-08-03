@@ -7,10 +7,10 @@ local ensure_installed = {
   "gomodifytags",
   "impl",
   "csharpier",
-  "ktlint",
-  "ktfmt",
+  -- "ktlint",
+  -- "ktfmt",
   "svelte-language-server",
-  "vue-language-server"
+  "vue-language-server",
 }
 
 return ensure_installed

@@ -1,5 +1,5 @@
 return {
-  enabled = true,
+  enabled = false,
   "AlexandrosAlexiou/kotlin.nvim",
   ft = { "kotlin" },
   dependencies = {
