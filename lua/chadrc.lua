@@ -6,11 +6,11 @@
 local M = {}
 
 ---@type ThemeName
-local theme = "gruvbox"
+local theme = "everblush"
 
 M.base46 = {
   theme = theme,
-  transparency = true,
+  transparency = false,
 
   integrations = {
     "blink-pair",
@@ -45,7 +45,7 @@ M.base46 = {
 
 M.ui = {
   cmp = {
-    icons_left = false,
+    icons_left = true,
     style = "default",
     format_colors = {
       lsp = true,
@@ -53,7 +53,7 @@ M.ui = {
   },
 
   statusline = {
-    theme = "default",
+    theme = "minimal",
     separator_style = "round",
   },
 
