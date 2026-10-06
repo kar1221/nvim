@@ -3,6 +3,7 @@
 -- add yours here
 
 local map = vim.keymap.set
+local unmap = vim.keymap.del
 local cmd = require("utils").cmd
 
 -- unmap("n", "<leader>e")
@@ -18,6 +19,8 @@ local cmd = require("utils").cmd
 -- unmap("n", "<leader>x")
 -- unmap("n", "<leader>h")
 -- unmap("n", "<leader>v")
+
+-- unmap("n", "<leader>ra")
 
 -- Windows
 map("n", "<C-h>", "<C-w>h", { desc = "Switch Window Left" })

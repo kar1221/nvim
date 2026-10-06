@@ -96,9 +96,9 @@ return {
         ["<C-k>"] = { "show_signature", "hide_signature", "fallback" },
       },
       completion = {
-        trigger = {
-          show_on_trigger_character = false,
-        },
+      --   trigger = {
+      --     show_on_trigger_character = false,
+      --   },
         menu = {
           draw = {
             components = {
@@ -149,6 +149,13 @@ return {
             },
           },
         },
+        list = {
+          selection = {
+            preselect = function(ctx)
+              return not require("blink.cmp").snippet_active { direction = 1 }
+            end,
+          },
+        },
       },
     },
   },
@@ -195,6 +202,7 @@ return {
         "typst",
         "yaml",
         "comment",
+        "http",
       },
     },
   },

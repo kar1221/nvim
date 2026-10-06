@@ -6,7 +6,7 @@
 local M = {}
 
 ---@type ThemeName
-local theme = "everblush"
+local theme = "ayu_light"
 
 M.base46 = {
   theme = theme,
